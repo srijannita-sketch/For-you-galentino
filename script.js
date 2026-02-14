@@ -48,8 +48,13 @@ function sayYes() {
       document.getElementById("secretMessage").classList.remove("hidden");
     }, 2000);
 
+  // Show signature
+    setTimeout(() => {
+      signature.classList.remove("hidden");
+    }, 3500);
+
   }, 2000);
-}
+      }
 
 function moveNo(button) {
   button.style.position = "absolute";
