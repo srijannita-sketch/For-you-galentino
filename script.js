@@ -1,3 +1,4 @@
+/* -------------------- SMOOTH REDIRECT -------------------- */
 function smoothRedirect(page) {
   document.body.classList.add("fade-out");
   setTimeout(() => {
@@ -5,6 +6,7 @@ function smoothRedirect(page) {
   }, 600);
 }
 
+/* -------------------- PASSWORD CHECK -------------------- */
 function checkPassword() {
   const input = document.getElementById("password").value.trim().toLowerCase();
   const error = document.getElementById("error");
@@ -25,14 +27,22 @@ function goToProposal() {
   smoothRedirect("proposal.html");
 }
 
-/* YES FLOW */
+/* -------------------- YES FLOW -------------------- */
 function sayYes() {
+
+  // Play music
+  const audio = document.getElementById("bgMusic");
+  audio.play();
+  localStorage.setItem("musicPlaying", "true");
 
   // Hide proposal
   document.getElementById("proposalSection").classList.add("hidden");
 
   // Show YAY
   document.getElementById("yaySection").classList.remove("hidden");
+
+  // Confetti
+  startConfetti();
 
   // After 2 seconds show final page
   setTimeout(() => {
@@ -43,30 +53,43 @@ function sayYes() {
     // Fill Love Meter
     document.getElementById("loveFill").style.width = "100%";
 
-    // Show secret message after meter fills
-    setTimeout(() => {
-      document.getElementById("secretMessage").classList.remove("hidden");
-    }, 2000);
-
-  // Show signature
-    setTimeout(() => {
-      signature.classList.remove("hidden");
-    }, 3500);
-
   }, 2000);
-      }
+}
 
+/* -------------------- SECRET BUTTON -------------------- */
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Resume music on next page
+  const audio = document.getElementById("bgMusic");
+  if (audio && localStorage.getItem("musicPlaying") === "true") {
+    audio.play();
+  }
+
+  // Secret reveal
+  const secretBtn = document.getElementById("secretBtn");
+  if (secretBtn) {
+    secretBtn.addEventListener("click", () => {
+      document.getElementById("secretMessage").classList.remove("hidden");
+      document.getElementById("signature").classList.remove("hidden");
+    });
+  }
+
+});
+
+/* -------------------- NO BUTTON RUN AWAY -------------------- */
 function moveNo(button) {
   button.style.position = "absolute";
   button.style.top = Math.random() * 400 + "px";
   button.style.left = Math.random() * 400 + "px";
 }
 
-/* CONFETTI */
+/* -------------------- CONFETTI -------------------- */
 let confettiAnimation;
 
 function startConfetti() {
   const canvas = document.getElementById("confetti");
+  if (!canvas) return;
+
   const ctx = canvas.getContext("2d");
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
@@ -97,7 +120,7 @@ function stopConfetti() {
   cancelAnimationFrame(confettiAnimation);
 }
 
-/* RANDOM HEART FLOAT AFTER UNLOCK */
+/* -------------------- RANDOM HEART FLOAT AFTER UNLOCK -------------------- */
 function createFloatingHearts() {
   for (let i=0;i<20;i++) {
     const heart = document.createElement("div");
@@ -109,9 +132,9 @@ function createFloatingHearts() {
 
     setTimeout(()=>heart.remove(),4000);
   }
-             }
-/* BACKGROUND FLOATING HEARTS */
+}
 
+/* -------------------- BACKGROUND FLOATING HEARTS -------------------- */
 function createBackgroundHeart() {
   const heart = document.createElement("div");
   heart.className = "bg-heart";
@@ -122,7 +145,8 @@ function createBackgroundHeart() {
   heart.style.animationDuration = (Math.random() * 6 + 6) + "s";
   heart.style.animationDelay = Math.random() * 5 + "s";
 
-  document.querySelector(".floating-hearts").appendChild(heart);
+  const container = document.querySelector(".floating-hearts");
+  if (container) container.appendChild(heart);
 
   setTimeout(() => {
     heart.remove();
@@ -132,6 +156,7 @@ function createBackgroundHeart() {
 /* Generate hearts continuously */
 setInterval(createBackgroundHeart, 800);
 
+/* -------------------- TYPEWRITER -------------------- */
 function typeWriter(text, element) {
   let i = 0;
   element.innerHTML = "";
@@ -145,4 +170,5 @@ function typeWriter(text, element) {
   }
 
   typing();
-}
+             }
+        
