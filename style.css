@@ -91,6 +91,57 @@ button:hover {
   100% { transform: scale(1); }
 }
 
+/* Heart Container (mobile friendly spacing) */
+.heart-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* Smaller Heart */
+.heart {
+  width: 85px;
+  height: 85px;
+  background: #ff4d6d;
+  position: relative;
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Circles */
+.heart::before,
+.heart::after {
+  content: "";
+  width: 85px;
+  height: 85px;
+  background: #ff4d6d;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.heart::before {
+  top: -42px;
+  left: 0;
+}
+
+.heart::after {
+  left: 42px;
+  top: 0;
+}
+
+/* Fix text alignment */
+.heart div {
+  transform: rotate(45deg);
+  font-size: 9px;
+  text-align: center;
+  width: 60px;
+  line-height: 1.1;
+  }
+
 /* -------------------- YAY POP -------------------- */
 
 .yay-pop {
@@ -151,6 +202,10 @@ button:hover {
   font-size: 22px;
 }
 
+.signature {
+  font-family: 'Pacifico', cursive;
+}
+
 /* -------------------- LOVE METER -------------------- */
 
 .love-meter-container {
@@ -169,9 +224,9 @@ button:hover {
 .love-fill {
   height: 100%;
   width: 0%;
-  background: linear-gradient(to right, hotpink, deeppink);
+  background: white;
   border-radius: 20px;
-  transition: width 2s ease;
+  transition: width 2s ease-in-out;
 }
 
 .secret {
@@ -233,3 +288,17 @@ button:hover {
   position: relative;
   z-index: 2;
   }
+
+.page {
+  display: none;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
