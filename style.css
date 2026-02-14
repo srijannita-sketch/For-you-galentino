@@ -1,5 +1,4 @@
-  /* -------------------- GLOBAL -------------------- */
-
+/* -------------------- GLOBAL -------------------- */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -12,7 +11,7 @@ body {
 /* Cinematic Page System */
 .page {
   padding: 60px 20px;
-  display: block;   /* 👈 THIS IS THE FIX */
+  display: block;   /* FIX: must be visible */
   position: relative;
   z-index: 2;
   animation: fadeIn 1s ease-in-out;
@@ -24,7 +23,6 @@ body {
 }
 
 /* -------------------- BUTTONS -------------------- */
-
 button {
   padding: 12px 25px;
   border-radius: 25px;
@@ -51,6 +49,8 @@ button:hover {
   justify-content: center;
   gap: 25px;
   margin-top: 40px;
+  position: relative;   /* FIX */
+  z-index: 1;
 }
 
 .reason-card {
@@ -96,6 +96,7 @@ button:hover {
   color: white;
 }
 
+/* FIXED TYPO: heartPulse (you had heartPuls e) */
 @keyframes heartPulse {
   0% { transform: rotate(-45deg) scale(1); }
   50% { transform: rotate(-45deg) scale(1.05); }
@@ -187,7 +188,8 @@ button:hover {
     transform: translateY(-110vh) translateX(-20px);
     opacity: 0;
   }
-  }
+}
+
 .hidden {
   display: none;
 }
@@ -235,6 +237,7 @@ button:hover {
   margin-top: 20px;
   font-size: 20px;
   text-align: center;
+  display: none;   /* FIX: hidden by default */
 }
 
 /* Signature handwritten vibe */
@@ -244,3 +247,4 @@ button:hover {
   font-size: 26px;
   text-align: center;
   }
+        
