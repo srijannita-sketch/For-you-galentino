@@ -12,7 +12,7 @@ body {
 /* Cinematic Page System */
 .page {
   padding: 60px 20px;
-  display: none;
+  display: block;   /* 👈 THIS IS THE FIX */
   position: relative;
   z-index: 2;
   animation: fadeIn 1s ease-in-out;
