@@ -27,23 +27,28 @@ function goToProposal() {
 
 /* YES FLOW */
 function sayYes() {
-  const music = document.getElementById("bgMusic");
-  const proposal = document.getElementById("proposalSection");
-  const yay = document.getElementById("yaySection");
-  const final = document.getElementById("finalSection");
 
-  music.play();
+  // Hide proposal
+  document.getElementById("proposalSection").classList.add("hidden");
 
-  proposal.classList.add("hidden");
-  yay.classList.remove("hidden");
+  // Show YAY
+  document.getElementById("yaySection").classList.remove("hidden");
 
-  startConfetti();
-
+  // After 2 seconds show final page
   setTimeout(() => {
-    stopConfetti();
-    yay.classList.add("hidden");
-    final.classList.remove("hidden");
-  }, 3000);
+
+    document.getElementById("yaySection").classList.add("hidden");
+    document.getElementById("finalSection").classList.remove("hidden");
+
+    // Fill Love Meter
+    document.getElementById("loveFill").style.width = "100%";
+
+    // Show secret message after meter fills
+    setTimeout(() => {
+      document.getElementById("secretMessage").classList.remove("hidden");
+    }, 2000);
+
+  }, 2000);
 }
 
 function moveNo(button) {
