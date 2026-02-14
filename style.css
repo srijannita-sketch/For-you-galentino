@@ -44,13 +44,17 @@ button:hover {
 /* -------------------- MINI HEART REASON CARDS -------------------- */
 
 .reasons-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 25px;
+  justify-items: center;
   margin-top: 40px;
-  position: relative;   /* FIX */
-  z-index: 1;
+}
+
+.special-cards {
+  margin-top: 60px;
+  position: relative;
+  z-index: 2;
 }
 
 .reason-card {
