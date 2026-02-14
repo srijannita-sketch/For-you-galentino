@@ -118,12 +118,6 @@ button:hover {
   color: #d63384;
 }
 
-.signature {
-  margin-top: 30px;
-  font-family: 'Pacifico', cursive;
-  font-size: 24px;
-}
-
 /* -------------------- LOVE METER -------------------- */
 
 .love-meter-container {
@@ -193,4 +187,60 @@ button:hover {
     transform: translateY(-110vh) translateX(-20px);
     opacity: 0;
   }
+  }
+.hidden {
+  display: none;
+}
+
+/* Buttons */
+.buttons button {
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 20px;
+  border: none;
+  margin: 10px;
+  cursor: pointer;
+}
+
+/* Yay text */
+.yay-text {
+  font-size: 40px;
+  animation: pop 1s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+/* Love meter */
+.love-meter {
+  width: 80%;
+  height: 20px;
+  background: #ffd6e7;
+  border-radius: 20px;
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+#loveFill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ff4d6d, #ff8fab);
+  transition: width 2s ease;
+}
+
+/* Secret Message */
+#secretMessage {
+  margin-top: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+/* Signature handwritten vibe */
+.signature {
+  margin-top: 30px;
+  font-family: 'Brush Script MT', cursive;
+  font-size: 26px;
+  text-align: center;
   }
