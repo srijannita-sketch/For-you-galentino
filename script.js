@@ -131,3 +131,18 @@ function createBackgroundHeart() {
 
 /* Generate hearts continuously */
 setInterval(createBackgroundHeart, 800);
+
+function typeWriter(text, element) {
+  let i = 0;
+  element.innerHTML = "";
+
+  function typing() {
+    if (i < text.length) {
+      element.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typing, 50);
+    }
+  }
+
+  typing();
+}
