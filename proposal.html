@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>Galentine 💕</title>
-
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -10,9 +9,9 @@
 <body>
 
 <div class="floating-hearts"></div>
-  
+
 <audio id="bgMusic" loop>
-  <source src="Lauv - I Like Me Better (Lyrics) i like me better when i'm with you.mp3" type="audio/mpeg">
+  <source src="Lauv - I Like Me Better (Lyrics) i like me better when i'm with you (1).mp3" type="audio/mpeg">
 </audio>
 
 <!-- PROPOSAL SECTION -->
@@ -45,7 +44,19 @@
   <p class="song-line">I like me better when I am with you 💖</p>
 
   <h2 class="happy-text">Happy Galentine's Day 💞</h2>
-  <h3 class="signature">With love, Srijannita 💌</h3>
+
+  <!-- SECRET BUTTON -->
+  <button id="secretBtn">Do you know a secret? 😌</button>
+
+  <!-- SECRET MESSAGE -->
+  <p id="secretMessage" class="secret hidden">
+    You unlocked the secret 😌💌 You’re stuck with me forever.
+  </p>
+
+  <!-- SIGNATURE -->
+  <h3 id="signature" class="signature hidden">
+    With love, Srijannita 💌
+  </h3>
 
   <!-- LOVE METER -->
   <div class="love-meter-container">
@@ -55,16 +66,9 @@
     </div>
   </div>
 
-  <!-- SECRET MESSAGE -->
-  <p id="secretMessage" class="secret hidden">
-    You unlocked the secret 😌💌 You’re stuck with me forever.
-  </p>
-
 </div>
 
-<!-- SCRIPT -->
 <script src="script.js"></script>
-
 </body>
   </html>
-    
+  
